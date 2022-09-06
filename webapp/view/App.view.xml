@@ -1,0 +1,72 @@
+<mvc:View
+    controllerName = "sap.app.controller.App"
+    xmlns = "sap.m"
+    xmlns:core = "sap.ui.core"
+    xmlns:l = "sap.ui.layout"
+    xmlns:f = "sap.ui.layout.form"
+    xmlns:mvc = "sap.ui.core.mvc"
+>
+<Shell>
+    <App>
+        <pages>
+            <Page title = "SAP Web Application">
+                <content>
+                    <IconTabBar selectedKey="db">
+                        <items>
+                            <IconTabFilter id = "start" text = "{i18n>firstMenuField}">
+                                <Carousel id = "carousel">
+                                    <pages>
+                                        <Image src = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"/>
+                                        <Image src = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"/>
+                                        <Image src = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"/>
+                                    </pages>
+                                </Carousel>
+                            </IconTabFilter>
+                            <IconTabFilter id = "container_block" text = "{i18n>secondMenuField}">
+                                <MessageStrip showIcon = "true" text = "{i18n>messageStrip}"/>
+                                <f:SimpleForm 
+                                    title = "User Form"
+                                    editable = "true"
+                                    class = "editableForm"
+                                >   
+                                    <f:content>
+                                        <Label text = "{i18n>layoutFormName}"/>
+                                        <Input value = "{userModel>/user/name}"/>
+                                        <Label text = "{i18n>layoutFormAge}"/>
+                                        <Input value = "{userModel>/user/age}"/>
+                                        <Label text = "{i18n>layoutFormEmail}"/>
+                                        <Input value = "{userModel>/user/email}"/>
+                                        <Label text = "{i18n>layoutFormRole}"/>
+                                        <Select id = "roleSelect">
+                                            <items>
+                                                <core:Item text = "{i18n>layoutFormRoleUser}"/>
+                                                <core:Item text = "{i18n>layoutFormRoleAdmin}"/>
+                                                <core:Item text = "{i18n>layoutFormRoleModerator}"/>
+                                            </items>
+                                        </Select>
+                                    </f:content>
+                                </f:SimpleForm>
+                                <Toolbar>
+                                    <ToolbarSpacer/>
+                                    <Button text = "{i18n>updateBtn}" type = "Accept" icon = "sap-icon://outbox"/>
+                                    <Button text = "{i18n>saveBtn}" icon = "sap-icon://save" press = "addUser"/>
+                                </Toolbar>
+                            </IconTabFilter>
+                            <IconTabFilter
+                                text = "{i18n>dataBinding}"
+                                key  ="db"
+                            >
+                                <List headerText = "Products" width = "auto" items = "{/ProductSet}">
+                                    <items>
+                                        <ObjectListItem title = "{Name}" number = "{Price}" intro = "{ProductId}" numberUnit = "{CurrencyCode}"></ObjectListItem>
+                                    </items>
+                                </List>
+                            </IconTabFilter>
+                        </items>
+                    </IconTabBar>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</Shell>
+</mvc:View>
