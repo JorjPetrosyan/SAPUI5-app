@@ -56,11 +56,30 @@
                                 text = "{i18n>dataBinding}"
                                 key  ="db"
                             >
-                                <List headerText = "Products" width = "auto" items = "{/ProductSet}">
+                                <Table items = "{invoice>/Employees}">
+                                    <columns>
+                                        <Column>
+                                            <Label text = "Employee ID"/>
+                                        </Column>
+                                        <Column>
+                                            <Label text = "First name"/>
+                                        </Column>
+                                        <Column>
+                                            <Label text = "Last name"/>
+                                        </Column>
+                                        <Column>
+                                            <Label text = "Country"/>
+                                        </Column>
+                                    </columns>
                                     <items>
-                                        <ObjectListItem title = "{Name}" number = "{Price}" intro = "{ProductId}" numberUnit = "{CurrencyCode}"></ObjectListItem>
+                                        <ColumnListItem>
+                                            <Text text = "{invoice>EmployeeID}"/>
+                                            <Text text = "{invoice>FirstName}"/>
+                                            <Text text = "{invoice>LastName}"/>
+                                            <Text text = "{invoice>Country}"/>
+                                        </ColumnListItem>
                                     </items>
-                                </List>
+                                </Table>      
                             </IconTabFilter>
                         </items>
                     </IconTabBar>

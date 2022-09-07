@@ -11,8 +11,8 @@
 			"version": "1.0.0"
 		},
 		"dataSources": {
-			"ES5": {
-				"uri": "/destinations/ES5/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
+			"invoiceRemote": {
+				"uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0"
@@ -65,8 +65,11 @@
                     "bundleName": "sap.app.i18n.i18n"
                 }
             },
+			"invoice": {
+				"dataSource": "invoiceRemote"
+			},
             "" : {
-                "dataSource": "ES5"
+                "dataSource": "invoiceRemote"
             }          
         },
 		"contentDensities": {
